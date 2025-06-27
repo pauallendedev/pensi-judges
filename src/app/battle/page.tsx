@@ -389,7 +389,7 @@ export default function BattlePage() {
       {pickerCoords && pickerValue !== null && pickerCallback && (
         <ScorePicker
           position={pickerCoords}
-          _={pickerValue}
+          currentValue={pickerValue}
           onSelect={(val) => {
             pickerCallback(val);
             closePicker();
