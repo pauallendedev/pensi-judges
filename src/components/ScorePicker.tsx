@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 
 interface Props {
   position: { x: number; y: number };
-  currentValue: number;
+  _: number;
   onSelect: (val: number) => void;
   onClose: () => void;
 }
 
-export default function ScorePicker({ position, currentValue, onSelect, onClose }: Props) {
+export default function ScorePicker({ position, _, onSelect, onClose }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [style, setStyle] = useState<React.CSSProperties>({
     top: position.y,

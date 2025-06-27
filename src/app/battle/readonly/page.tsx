@@ -35,24 +35,20 @@ export default function ReadOnlyBattlePage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    try {
-      const mcsRaw = searchParams.get("mcs");
-      const roundsRaw = searchParams.get("rounds");
-      const scoresRaw = searchParams.get("scores");
-      const bonusRaw = searchParams.get("bonusScores");
+    const mcsRaw = searchParams.get("mcs");
+    const roundsRaw = searchParams.get("rounds");
+    const scoresRaw = searchParams.get("scores");
+    const bonusRaw = searchParams.get("bonusScores");
 
-      if (!mcsRaw || !roundsRaw || !scoresRaw || !bonusRaw) {
-        setError("Faltan datos. Asegúrate de exportar desde resultados.");
-        return;
-      }
-
-      setMcs(JSON.parse(decodeURIComponent(mcsRaw)));
-      setRounds(JSON.parse(decodeURIComponent(roundsRaw)));
-      setScores(JSON.parse(decodeURIComponent(scoresRaw)));
-      setBonusScores(JSON.parse(decodeURIComponent(bonusRaw)));
-    } catch (e) {
-      setError("Error al procesar los datos.");
+    if (!mcsRaw || !roundsRaw || !scoresRaw || !bonusRaw) {
+      setError("Faltan datos. Asegúrate de exportar desde resultados.");
+      return;
     }
+
+    setMcs(JSON.parse(decodeURIComponent(mcsRaw)));
+    setRounds(JSON.parse(decodeURIComponent(roundsRaw)));
+    setScores(JSON.parse(decodeURIComponent(scoresRaw)));
+    setBonusScores(JSON.parse(decodeURIComponent(bonusRaw)));
   }, [searchParams]);
 
   const allRoundIds: string[] = rounds.flatMap((r) =>

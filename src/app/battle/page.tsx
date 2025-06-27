@@ -5,7 +5,6 @@ import { useSearchParams } from "next/navigation";
 import ScorePicker from "@/components/ScorePicker";
 import React from "react";
 import { useRouter } from "next/navigation";
-import LZString from "lz-string";
 
 interface MC {
   name: string;
@@ -390,7 +389,7 @@ export default function BattlePage() {
       {pickerCoords && pickerValue !== null && pickerCallback && (
         <ScorePicker
           position={pickerCoords}
-          currentValue={pickerValue}
+          _={pickerValue}
           onSelect={(val) => {
             pickerCallback(val);
             closePicker();

@@ -133,15 +133,11 @@ export default function Home() {
 
     const reader = new FileReader();
     reader.onload = (event) => {
-      try {
-        const result = JSON.parse(event.target?.result as string);
-        if (result?.mcs && result?.rounds) {
-          setMcs(result.mcs);
-          setRounds(result.rounds);
-        }
-      } catch (error) {
-        alert('Error al importar la configuración. Asegúrate de que sea un archivo válido.');
-      }
+      const result = JSON.parse(event.target?.result as string);
+      if (result?.mcs && result?.rounds) {
+        setMcs(result.mcs);
+        setRounds(result.rounds);
+      }  
     };
     reader.readAsText(file);
   };
